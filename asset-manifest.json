@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/%7Baround-react_es%7D/static/css/main.b1da05c6.css",
+    "main.js": "/%7Baround-react_es%7D/static/js/main.b9a66dd9.js",
+    "static/js/453.c44a0ee9.chunk.js": "/%7Baround-react_es%7D/static/js/453.c44a0ee9.chunk.js",
+    "static/media/Inter-Medium.woff2": "/%7Baround-react_es%7D/static/media/Inter-Medium.19e05b2238d4f2d8d3d5.woff2",
+    "static/media/Inter-Black.woff2": "/%7Baround-react_es%7D/static/media/Inter-Black.b2225c2dc69e7ffb47b7.woff2",
+    "static/media/Inter-Regular.woff2": "/%7Baround-react_es%7D/static/media/Inter-Regular.e976b84791e6a5f65646.woff2",
+    "static/media/logo.svg": "/%7Baround-react_es%7D/static/media/logo.c75819857ff1599f0c50e9fc06373cd9.svg",
+    "index.html": "/%7Baround-react_es%7D/index.html",
+    "main.b1da05c6.css.map": "/%7Baround-react_es%7D/static/css/main.b1da05c6.css.map",
+    "main.b9a66dd9.js.map": "/%7Baround-react_es%7D/static/js/main.b9a66dd9.js.map",
+    "453.c44a0ee9.chunk.js.map": "/%7Baround-react_es%7D/static/js/453.c44a0ee9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b1da05c6.css",
+    "static/js/main.b9a66dd9.js"
+  ]
+}
