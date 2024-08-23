@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="profile, photographs, forms, places to explore" />
+  <meta name="author" content="Nicolle Algarin" />
+  <title>Al rededor de los EE UU</title>
+  <!-- <link rel="stylesheet" href="./pages/index.css" /> -->
+</head>
+
+<body class="body">
+  <div class="page">
+    <header class="header">
+      <img class="header__logo" src="" alt="logo Around the U.S." />
+      <span class="header__divider"></span>
+    </header>
+
+    <main class="content">
+      <section class="profile">
+        <div class="profile__image">
+          <img class="profile__avatar" src="" alt="foto de perfil" name="avatar" />
+          <div class="profile__avatar-edit"></div>
+        </div>
+
+        <div class="profile__info">
+          <h1 class="profile__info-name"></h1>
+          <p class="profile__info-description"></p>
+          <button id="edit-button" class="profile__edit-button" type="button"></button>
+        </div>
+
+        <button id="add-button" class="profile__add-button" type="button"></button>
+      </section>
+
+      <section id="cards-section" class="cards"></section>
+
+      <footer class="footer">
+        <p class="footer__copyright">&copy; 2024 Nicolle Algarín</p>
+      </footer>
+    </main>
+  </div>
+  <!-- ------------------------PROFILE-------------------------------------- -->
+  <div class="popup popup-profile">
+    <div class="popup__overlay"></div>
+    <div class="popup__content">
+      <form name="profile-form" class="popup__admin" novalidate>
+        <img src="" alt="Close icon" class="popup__close-icon popup__close-icon-profile" />
+        <div>
+          <fieldset class="popup__container popup__container-input">
+            <h2 class="popup__heading">Editar Perfil</h2>
+
+            <input id="text-input-name" class="popup__input popup__input-name" type="text" placeholder="Nombre" value=""
+              required minlength="2" maxlength="40" name="name" />
+
+            <div class="popup__line"></div>
+            <span class="popup__input-error text-input-name-error"></span>
+
+            <input id="text-input-about" class="popup__input popup__input-about" type="text" placeholder="Acerca de mí"
+              value="" required minlength="2" maxlength="200" name="about" />
+
+            <div class="popup__line"></div>
+            <span class="popup__input-error text-input-about-error"></span>
+            <button class="popup__button-save popup__button-save-profile" type="submit" value="Crear" disabled>Crear</button>
+          </fieldset>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ------------------------PLACES---------------------- -->
+  <div class="popup popup-place">
+    <div class="popup__overlay"></div>
+    <div class="popup__content">
+      <form name="place-form" class="popup__admin" novalidate>
+        <img src="" alt="Close icon" class="popup__close-icon popup__close-icon-place" />
+        <div>
+          <fieldset class="popup__container popup__container-input">
+            <h2 class="popup__heading">Nuevo lugar</h2>
+
+            <input id="text-input-place" class="popup__input popup__input-place" type="text" placeholder="Título"
+              required minlength="2" maxlength="30" name="name" />
+
+            <div class="popup__line"></div>
+            <span class="popup__input-error text-input-place-error"></span>
+
+            <input id="url-input" class="popup__input popup__input-link popup__input-place" type="url"
+              placeholder="Enlace a la imagen" required name="link" />
+
+            <div class="popup__line"></div>
+            <span class="popup__input-error url-input-error"></span>
+            <button class="popup__button-save popup__button-save-place" type="submit" value="Crear" id="saveButton"
+              disabled>Crear</button>
+          </fieldset>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ------------------------IMAGE---------------------- -->
+  <div class="popup popup-card" id="image-popup">
+    <div class="popup__overlay"></div>
+    <div class="popup__content-image">
+      <img src="" alt="Close icon" class="popup__close-icon popup__close-icon-image" />
+      <img class="popup__image" src=" " alt=" " />
+      <p class="popup__title"></p>
+    </div>
+  </div>
+
+  <!-- ------------------------AVATAR---------------------- -->
+  <div class="popup popup-avatar">
+    <div class="popup__overlay"></div>
+    <div class="popup__content popup__content-avatar">
+      <form name="avatar-form" class="popup__admin" novalidate>
+        <img src="" alt="Close icon" class="popup__close-icon popup__close-icon-place" />
+        <div>
+          <fieldset class="popup__container popup__container-input">
+            <h2 class="popup__heading">Cambiar foto de perfil</h2>
+
+            <input id="url-avatar-input" class="popup__input popup__input-avatar" type="url"
+              placeholder="Enlace a la imagen de perfil" required name="avatarLink" />
+
+            <div class="popup__line"></div>
+            <span class="popup__input-error url-input-error url-avatar-input-error
+            "></span>
+            <button class="popup__button-save popup__button-save-avatar" type="submit" value="Crear" id="saveButton"
+              disabled>Guardar</button>
+          </fieldset>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ------------------------CONFIRMACIÓN---------------------- -->
+  <div class="popup popup-confirm">
+    <div class="popup__overlay"></div>
+    <div class="popup__content popup__content-confirm">
+      <form name="confirm-form" class="popup__admin" novalidate>
+        <img src="" alt="Close icon" class="popup__close-icon popup__close-icon-place" />
+        <h2 class="popup__heading">¿Estás seguro/a?</h2>
+        <button class="popup__button-save popup__button-save-confirm" type="button" value="Crear" id="saveButton"
+          >Sí</button>
+      </form>
+    </div>
+  </div>
+<!-- ------------------------CONTENEDOR LOADER---------------------- -->
+ <div class="loader-container">
+    <div 
+    class="loader">
+    </div>
+ </div>
+
+  <template id="cards-template">
+    <div class="cards__item">
+      <img class="cards__item-image" src=" " alt=" " />
+      <div class="cards__footer">
+        <p class="cards__footer-name"></p>
+        <div class="cards__footer-fav-container">
+          <button class="cards__footer-fav-button" type="button"></button>
+          <p class="cards__footer-likes-number"></p>
+        </div>
+      </div>
+      <button class="cards__delete" type="button"></button>
+    </div>
+  </template>
+  <script>
+    window.onload = () => {
+      const loader = document.querySelector(".loader-container");
+      loader.style.visibility = "hidden";
+      loader.style.opacity = "0";
+    };
+  </script>
+</body>
+
+</html>

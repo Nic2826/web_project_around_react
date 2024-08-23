@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.header__logo {
+  width: 173px;
+  margin-bottom: 41px;
+}
+
+.header__divider {
+  border: 1px solid #545454;
+  max-width: 880px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 880px) {
+  .header__logo {
+    margin-left: 27px;
+  }
+}

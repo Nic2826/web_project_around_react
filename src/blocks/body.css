@@ -1,0 +1,12 @@
+.body {
+  background-color: black;
+}
+
+.page__container{
+  background-color: black;
+ max-width: 880px;
+  min-width: 320px;
+   color: white;
+  box-sizing: border-box;
+  margin: 45px auto 40px;
+}

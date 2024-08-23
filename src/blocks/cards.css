@@ -1,0 +1,114 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 18px;
+  box-sizing: border-box;
+}
+
+.cards__item {
+  width: 282px;
+  height: 361px;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  position: relative;
+}
+
+.cards__item-image {
+  height: 282px;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cards__footer {
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+
+.cards__footer-likes-number{
+  margin: 0;
+  text-align: center  ;
+}
+
+.cards__footer-name {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 900;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.cards__footer-fav-button {
+  background: transparent url(../images/fav.png) center no-repeat;
+  width: 21px;
+  height: 19px;
+  border: none;
+  cursor: pointer;
+  padding-right: 20px;
+}
+
+@media (hover: hover) {
+  .cards__footer-fav-button:hover {
+    opacity: 50%;
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
+}
+
+.cards__footer-fav-button_active {
+  opacity: 1;
+  background: url(../images/fulled-heart.jpg) center no-repeat;
+  transform: scale(1.1);
+}
+
+.popup_card {
+  visibility: hidden;
+}
+
+.cards__delete {
+  background-image: url(../images/delete.png);
+  background-color: transparent;
+  width: 18px;
+  height: 19.3px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+}
+
+@media (hover: hover) {
+  .cards__delete:hover {
+    opacity: 60%;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+  .cards__item {
+    justify-self: center;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .cards {
+    display: flex;
+    flex-direction: column;
+  }
+  .cards__item {
+    width: 282px;
+    margin: auto;
+  }
+}
