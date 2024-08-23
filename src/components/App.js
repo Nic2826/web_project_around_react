@@ -92,6 +92,7 @@ function App() {
           name="place-form"
           title="Nuevo Lugar"
           buttonText="Crear">
+
           <input id="text-input-place" className="popup__input popup__input-place" type="text" placeholder="Título"
             required minLength="2" maxLength="30" name="name" />
 
@@ -105,14 +106,13 @@ function App() {
           <span className="popup__input-error url-input-error"></span>
         </PopUpWithForm>
 
-        <ImagePopup>
-          isOpen={isImagePopupOpen}
-          link={selectedCard.link}
-          title={selectedCard.name}
-          onClose={closeAllPopups}
-          
-
+        <ImagePopup
+         link={selectedCard.link}
+         title={selectedCard.name}
+         isOpen={isImagePopupOpen}
+         onClose={closeAllPopups}>
         </ImagePopup>
+       
       </div>
     </div>
   );

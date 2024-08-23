@@ -13,7 +13,6 @@ export default function Main(props) {
   useEffect(() => {
     async function getValues() {
       const response = await api.getUserInfo();
-      console.log(response);
       setUserName(response.name);
       setUserAvatar(response.avatar);
       setUserDescription(response.about);
@@ -24,7 +23,6 @@ export default function Main(props) {
   useEffect(() => {
     async function getCards() {
       const initialCards = await api.getInitialCards();
-      console.log(initialCards);
       setCards(initialCards);
     }
     getCards();
@@ -72,7 +70,7 @@ export default function Main(props) {
         </div>
       </div>
 
-      <div>
+      <div className="cards">
         {cards.map((card) => (
           <Card 
           key={card._id} 

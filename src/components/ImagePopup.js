@@ -1,7 +1,6 @@
 import close from '../images/close.png';
 export default function ImagePopup({link, title, onClose, isOpen}) {
   return (
-    // <div className={`popup popup-card ${isOpen ? "popup_open" : ""}`} id="image-popup">
       <div className={`popup popup-card ${isOpen ? "popup_open" : ""}`} id="image-popup">
       <div className="popup__overlay"></div>
       <div className="popup__content-image">
