@@ -111,6 +111,14 @@ class Api {
     })
   }
 
+  changeLikeCardStatus(cardId, isLiked) {
+    if (isLiked) {
+      return this.deleteLike(cardId);
+    } else {
+      return this.addLike(cardId);
+    }
+  }
+
    async deleteLike(cardId) {
      return await fetch(`${this.baseUrl}/cards/likes/${cardId}`, {
       method: "DELETE",

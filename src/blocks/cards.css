@@ -85,6 +85,10 @@
   right: 15px;
 }
 
+.cards__delete_hidden {
+  visibility: hidden;
+} 
+
 @media (hover: hover) {
   .cards__delete:hover {
     opacity: 60%;
