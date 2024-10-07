@@ -14,10 +14,10 @@ export default function EditProfilPopup({isOpen, onClose, onUpdateUser}) {
     }
 
     useEffect(() => {
+      if(currentUser.name !== undefined && currentUser.about !== undefined) {
         setName(currentUser.name);
         setAbout(currentUser.about);
-        console.log("nombre:",name, "about:",about);
-        console.log("currentNombre:",currentUser.name, "currentAbout:",currentUser.about);
+      }
       }, [currentUser]);
 
     function handleChangeAbout(e) {

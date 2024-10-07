@@ -40,7 +40,7 @@ export default function Card({name, link, likes, onCardClick, card, onCardLike, 
                     <p className="cards__footer-likes-number">{likes.length}</p>
                 </div>
             </div>
-            <button className={cardDeleteButtonClassName} type="button" onClick={handleClick}></button>
+            <button className={cardDeleteButtonClassName} type="button" onClick={handleDelete}></button>
         </div>
     )
 }

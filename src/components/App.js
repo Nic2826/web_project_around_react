@@ -8,7 +8,8 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 import { useState, useEffect } from 'react';
 import EditProfilPopup from './EditProfilPopup.js';
 import EditAvatarPopup from './EditAvatarPopup.js';
-import AddPlacePop from './AddPlacePop.js';
+import AddPlacePopup from './AddPlacePopup.js';
+import ConfirmDeletePopup from './ConfirmDeletePopup.js';
 
 function App() {
   const [cards, setCards] = useState([]);
@@ -17,7 +18,13 @@ function App() {
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isImagePopupOpen, setIsImagePopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState({});
-  const [currentUser, setCurrentUser] = useState({});
+  const [isDeleteCardPopupOpen, setIsDeleteCardPopupOpen] = useState(false);
+  const [cardToDelete, setCardToDelete] = useState(null); 
+  const [currentUser, setCurrentUser] = useState({
+    name: '',
+    about: ''
+  });
+  
 
   useEffect(() => {
     async function getCards() {
@@ -27,6 +34,25 @@ function App() {
     getCards();
   }, []);
 
+  // Abrir el popup de confirmación para eliminar
+  function handleDeleteClick(card) {
+    setCardToDelete(card); // Guardamos la tarjeta que se quiere eliminar
+    setIsDeleteCardPopupOpen(true); // Abrimos el popup de confirmación
+  }
+
+  // Confirmar eliminación
+  function handleConfirmDelete() {
+    api.deleteCard(cardToDelete._id)
+      .then(() => {
+        setCards((state) => state.filter((c) => c._id !== cardToDelete._id));
+        setIsDeleteCardPopupOpen(false); // Cerramos el popup después de eliminar
+        setCardToDelete(null); // Limpiamos la tarjeta a eliminar
+      })
+      .catch((err) => {
+        console.error('Error al eliminar la tarjeta:', err);
+      });
+  }
+
   function handleCardLike(card) {
     // Verifica una vez más si a esta tarjeta ya le han dado like
     const isLiked = card.likes.some(i => i._id === currentUser._id);
@@ -35,13 +61,6 @@ function App() {
     api.changeLikeCardStatus(card._id, isLiked).then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
     });
-}
-
-function handleCardDelete(card) {
-  api.deleteCard(card._id)
-    .then((newCard) => {
-      setCards((state) => state.filter((c) => c._id !== card._id));
-    })
 }
 
   useEffect(() => {
@@ -75,6 +94,7 @@ function handleCardDelete(card) {
     setIsAddPlacePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
     setIsImagePopupOpen(false);
+    setIsDeleteCardPopupOpen(false);
   }
 
   //NOT SURE-------------------------------------------------------------------
@@ -109,7 +129,7 @@ function handleCardDelete(card) {
           onCardClick={handleCardClick}
           cards={cards}
           onCardLike={handleCardLike}
-          onCardDelete={handleCardDelete}
+          onCardDelete={handleDeleteClick}
         />
         <Footer />
 
@@ -128,7 +148,7 @@ function handleCardDelete(card) {
         />
 
         {/* ---------------------PLACE--------------------- */}
-       <AddPlacePop 
+       <AddPlacePopup 
        isOpen={isAddPlacePopupOpen} 
        onClose={closeAllPopups}
        onAddPlace={handleAddPlace}
@@ -140,6 +160,13 @@ function handleCardDelete(card) {
          isOpen={isImagePopupOpen}
          onClose={closeAllPopups}
         />
+
+        {/* Popup de confirmación de eliminación */}
+        <ConfirmDeletePopup
+            isOpen={isDeleteCardPopupOpen}
+            onClose={closeAllPopups}
+            onConfirm={handleConfirmDelete} // Confirmar eliminación al hacer clic en el botón "Eliminar"
+          />
         </CurrentUserContext.Provider>
        
       </div>
