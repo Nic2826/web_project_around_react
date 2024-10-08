@@ -53,6 +53,8 @@ function App() {
       });
   }
 
+
+
   function handleCardLike(card) {
     // Verifica una vez más si a esta tarjeta ya le han dado like
     const isLiked = card.likes.some(i => i._id === currentUser._id);
@@ -100,12 +102,14 @@ function App() {
   //NOT SURE-------------------------------------------------------------------
   function handleUpdateUser(userData) {
     api.updateUserInfo(userData).then((newUser) => {
+      console.log('Usuario actualizado:', newUser); // Verificar la respuesta
       setCurrentUser(newUser);
     })
   }
 
-  function handleUpdateAvatar(link) {
-    api.updateAvatar(link).then((newAvatar) => {
+  function handleUpdateAvatar(avatar) {
+    api.updateAvatar(avatar).then((newAvatar) => {
+      console.log('Avatar actualizado:', newAvatar); 
       setCurrentUser(newAvatar);
     })
   }
@@ -167,6 +171,9 @@ function App() {
             onClose={closeAllPopups}
             onConfirm={handleConfirmDelete} // Confirmar eliminación al hacer clic en el botón "Eliminar"
           />
+
+        <FormValidator formConfig={formConfig} onSubmit={handleFormSubmit} /> 
+
         </CurrentUserContext.Provider>
        
       </div>

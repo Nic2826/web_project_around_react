@@ -56,12 +56,12 @@ class Api {
     });
   }
 
-   async updateAvatar(data) {
+   async updateAvatar(avatar) {
     const late = await fetch(`${this.baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this.headers,
       body: JSON.stringify({
-        avatar: data.avatar
+        avatar: avatar
       })
     })
     return late.json();

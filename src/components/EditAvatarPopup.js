@@ -14,7 +14,7 @@ const inputRef = createRef();
     <PopUpWithForm
           isOpen={isOpen}
           onClose={onClose}
-          onsubmit={handleSubmit}
+          onSubmit={handleSubmit}
           onUpdateAvatar={onUpdateAvatar}
           name="avatar-form"
           title="Cambiar Foto de Perfil"
@@ -30,8 +30,7 @@ const inputRef = createRef();
           name="avatarLink" />
 
           <div className="popup__line"></div>
-          <span className="popup__input-error url-input-error url-avatar-input-error
-            "></span>
+          <span className="popup__input-error url-input-error url-avatar-input-error"></span>
         </PopUpWithForm>
   )
 }
