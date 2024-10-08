@@ -8,5 +8,6 @@
   min-width: 320px;
    color: white;
   box-sizing: border-box;
-  margin: 45px auto 40px;
+  margin: auto ;
+  padding : 45px 0 40px;
 }

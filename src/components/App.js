@@ -172,7 +172,7 @@ function App() {
             onConfirm={handleConfirmDelete} // Confirmar eliminación al hacer clic en el botón "Eliminar"
           />
 
-        <FormValidator formConfig={formConfig} onSubmit={handleFormSubmit} /> 
+  
 
         </CurrentUserContext.Provider>
        
